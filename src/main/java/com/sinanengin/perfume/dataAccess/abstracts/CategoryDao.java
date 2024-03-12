@@ -1,4 +1,8 @@
 package com.sinanengin.perfume.dataAccess.abstracts;
 
-public interface CategoryDao {
+import com.sinanengin.perfume.entities.Brand;
+import com.sinanengin.perfume.entities.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryDao extends JpaRepository<Category,Integer> {
 }
