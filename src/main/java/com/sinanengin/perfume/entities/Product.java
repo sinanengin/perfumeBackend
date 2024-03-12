@@ -1,15 +1,14 @@
 package com.sinanengin.perfume.entities;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "product")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Entity
+@Table(name = "product")
 
 public class Product {
     @Id
@@ -30,19 +29,23 @@ public class Product {
     @Column(name = "product_is_bestseller")
     private boolean productIsBestSeller;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "volume_id")
+
+    @ManyToOne
+    @JoinColumn(name = "product_volume_id")
     private Volume volume;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "gender_id")
+
+    @ManyToOne
+    @JoinColumn(name = "product_gender_id")
     private Gender gender;
 }

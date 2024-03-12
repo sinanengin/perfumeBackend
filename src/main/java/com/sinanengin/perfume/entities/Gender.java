@@ -1,5 +1,7 @@
 package com.sinanengin.perfume.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@JsonIgnoreProperties({"hibernateLazyInıtializer","handler","products"})
 @Entity
 @Table(name = "gender")
 @AllArgsConstructor
@@ -23,6 +25,7 @@ public class Gender {
     @Column(name = "gender_name")
     private String genderName;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+    @OneToMany(mappedBy = "gender")
     private List<Product> products = new ArrayList<>();
 }

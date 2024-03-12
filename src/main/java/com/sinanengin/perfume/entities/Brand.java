@@ -1,5 +1,6 @@
 package com.sinanengin.perfume.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties({"hibernateLazyInıtializer","handler","products"})
 @Entity
 @Table(name = "brand")
 @AllArgsConstructor
@@ -23,6 +25,6 @@ public class Brand {
     @Column(name = "brand_Name")
     private String brandName;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "brand")
     private List<Product> products = new ArrayList<>();
 }
