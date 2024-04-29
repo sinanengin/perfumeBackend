@@ -1,6 +1,7 @@
 package com.sinanengin.perfume.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Volume {
     @Column(name = "volume_id")
     private int volumeId;
 
+    @NotEmpty(message = "Ürün boyutu boş geçilemez!")
     @Column(name = "volume")
     private String volume;
 

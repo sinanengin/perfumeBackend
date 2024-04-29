@@ -1,5 +1,6 @@
 package com.sinanengin.perfume.business.abstracts;
 
+import com.sinanengin.perfume.core.utilities.requests.PagedList;
 import com.sinanengin.perfume.core.utilities.results.DataResult;
 import com.sinanengin.perfume.core.utilities.results.Result;
 import com.sinanengin.perfume.entities.Product;
@@ -7,14 +8,14 @@ import com.sinanengin.perfume.entities.Product;
 import java.util.List;
 
 public interface ProductService {
-    DataResult<List<Product>> getAll(Integer volumeId, Integer brandId, Integer categoryId, Integer genderId);
+    DataResult<PagedList<Product>> getAll(Integer volumeId, Integer brandId, Integer categoryId, Integer genderId, Integer pageSize, Integer pageNo);
 
-    DataResult<List<Product>> getByProductNameContains(String productName);
+    DataResult<PagedList<Product>> getByProductNameContains(String productName, Integer pageSize, Integer pageNo);
 
-    DataResult<List<Product>> getByProductIsBestSeller();
+    DataResult<PagedList<Product>> getByProductIsBestSeller(Integer pageSize, Integer pageNo);
 
-    Result addProduct(Product product);
-    Result deleteProduct(int productId);
-    Result updateProduct(Product product);
+    DataResult<Product> addProduct(Product product);
+    DataResult<Product> deleteProduct(int productId);
+    DataResult<Product> updateProduct(Product product);
 
 }

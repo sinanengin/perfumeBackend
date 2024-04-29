@@ -3,6 +3,7 @@ package com.sinanengin.perfume.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Gender {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "gender_id")
     private int genderId;
+
 
     @Column(name = "gender_name")
     private String genderName;

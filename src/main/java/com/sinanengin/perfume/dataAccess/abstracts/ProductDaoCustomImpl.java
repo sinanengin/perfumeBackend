@@ -4,6 +4,8 @@ import com.sinanengin.perfume.entities.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -11,7 +13,7 @@ public class ProductDaoCustomImpl implements ProductDaoCustom{
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<Product> findProduct(Integer volumeId, Integer brandId, Integer categoryId, Integer genderId) {
+    public List<Product> findProduct(Integer volumeId, Integer brandId, Integer categoryId, Integer genderId, Pageable pageable) {
         String jpql = "SELECT p FROM Product p WHERE 1=1";
 
         if (volumeId != null) {

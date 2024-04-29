@@ -2,6 +2,7 @@ package com.sinanengin.perfume.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,8 @@ public class Brand {
     @Column(name = "brand_id")
     private int brandId;
 
+
+    @NotEmpty(message = "Kategori ismi boş geçilemez!")
     @Column(name = "brand_Name")
     private String brandName;
 
