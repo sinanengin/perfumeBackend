@@ -1,4 +1,5 @@
 package com.sinanengin.perfume.entities;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
@@ -6,12 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
 @Table(name = "product")
-
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","starProduct", "orders","userComments","userQuestions"})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,4 +70,13 @@ public class Product {
     @NotEmpty(message = "Cinsiyet seçimi boş geçilemez!")
     @JoinColumn(name = "product_gender_id")
     private Gender gender;
+
+    @OneToMany(mappedBy = "product")
+    private List<Order> orders;
+
+    @OneToMany(mappedBy = "product")
+    private List<UserComment> userComments;
+
+    @OneToMany(mappedBy = "product")
+    private List<UserQuestion> userQuestions;
 }
