@@ -17,8 +17,8 @@ public interface OrderService {
 
 
 
-    DataResult<Order> addBrand(Order order);
-    DataResult<Order> deleteBrand(int orderId);
-    DataResult<Order> updateBrand(Order order);
+    DataResult<Order> addOrder(Order order);
+    DataResult<Order> deleteOrder(int orderId);
+    DataResult<Order> updateOrder(Order order);
 
 }

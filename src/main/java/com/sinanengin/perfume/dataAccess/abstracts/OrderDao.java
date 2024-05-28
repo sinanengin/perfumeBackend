@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface OrderDao extends JpaRepository<Order, Integer> {
     List<Order> getByUser_userId(int userId);
-    List<Order> getByProduct_productId(int productId);
+    Order getByProduct_productId(int productId);
 }

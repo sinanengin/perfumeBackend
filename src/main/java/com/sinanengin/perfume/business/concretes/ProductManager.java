@@ -78,6 +78,11 @@ public class ProductManager implements ProductService {
     }
 
     @Override
+    public DataResult<Product> getByProductId(int id) {
+        return new SuccessDataResult<>(productDao.findById(id).get());
+    }
+
+    @Override
     public DataResult<Product> addProduct(Product product) {
         if (productDao.findById(product.getProductId()).isPresent())
             return new ErrorDataResult<>("Bu ürün zaten kayıtlı!");

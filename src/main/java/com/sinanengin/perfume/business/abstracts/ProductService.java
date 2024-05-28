@@ -14,6 +14,8 @@ public interface ProductService {
 
     DataResult<PagedList<Product>> getByProductIsBestSeller(Integer pageSize, Integer pageNo);
 
+    DataResult<Product> getByProductId(int id);
+
     DataResult<Product> addProduct(Product product);
     DataResult<Product> deleteProduct(int productId);
     DataResult<Product> updateProduct(Product product);

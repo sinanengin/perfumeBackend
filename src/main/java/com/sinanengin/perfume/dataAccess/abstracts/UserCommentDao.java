@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface UserCommentDao extends JpaRepository<UserComment, Integer> {
     List<UserComment> getByUser_userId(int userId);
-    List<UserComment> getByProduct_product_Id(int productId);
+    List<UserComment> getByProduct_productId(int productId);
 }

@@ -14,7 +14,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","answers"})
 public class UserQuestion {
 
     @Id
@@ -30,9 +29,8 @@ public class UserQuestion {
     private String questionText;
 
     @Column(name = "answered")
-    private boolean answered;
+    private boolean isAnswered;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "userQuestion")
     private List<Answer> answers;
 

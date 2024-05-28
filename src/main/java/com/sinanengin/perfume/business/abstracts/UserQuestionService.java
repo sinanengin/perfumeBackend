@@ -12,6 +12,9 @@ public interface UserQuestionService {
 
     DataResult <List<UserQuestion>> getUserQuestionByProductId(int productId);
 
+    DataResult<UserQuestion> getUserQuestionById(int id);
+    DataResult<List<UserQuestion>> getAllUserQuestion();
+
     DataResult<UserQuestion> addUserQuestion(UserQuestion userQuestion);
     DataResult<UserQuestion> deleteUserQuestion(int userQuestionId);
     DataResult<UserQuestion> updateUserQuestion(UserQuestion userQuestion);

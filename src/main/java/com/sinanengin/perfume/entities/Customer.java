@@ -28,6 +28,7 @@ public class Customer {
     @Column(name = "customer_phone")
     private String phone;
 
-    @OneToOne(mappedBy = "customer")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 }

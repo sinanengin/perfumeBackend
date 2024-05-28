@@ -14,7 +14,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "customer", "userOperationClaims", "userComments", "orders", "questions"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "customer", "userOperationClaims", "userComments", "orders", "questions", "userPermission"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +30,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
-    private Customer customer;
+
 
     @OneToMany(mappedBy = "user")
     private Set<UserPermission> userPermission;

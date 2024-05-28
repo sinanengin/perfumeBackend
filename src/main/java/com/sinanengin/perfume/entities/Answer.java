@@ -1,5 +1,6 @@
 package com.sinanengin.perfume.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","userQuestion"})
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +21,6 @@ public class Answer {
     @Column(name = "answer_text")
     private String answerText;
 
-    //@JsonBackReference
     @ManyToOne()
     @JoinColumn(name="question_id")
     private UserQuestion userQuestion;
